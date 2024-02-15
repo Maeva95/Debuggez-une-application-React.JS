@@ -11,32 +11,41 @@ const PER_PAGE = 9;
 
 const EventList = () => {
   const { data, error } = useData();
-  const [type, setType] = useState();
+  const [type, setType] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  const filteredEvents = (
-    (!type
-      ? data?.events
-      : data?.events) || []
-  ).filter((event, index) => {
-    if (
-      (currentPage - 1) * PER_PAGE <= index &&
-      PER_PAGE * currentPage > index
-    ) {
-      return true;
+
+  // retourne le tableau des évènements associés aux différents types d'event
+  const filteredEventsByType = () => {
+    if(!type) {
+      return data?.events || []
     }
-    return false;
-  });
+    return data?.events?.filter((event) => event.type === type)
+  }
+  // fonction pour afficher les événements filtrés par page
+  function filteredEventsbypage () {
+    return (currentPage -1) * PER_PAGE
+  }
+  // fonction qui permet d'afficher les events séléctionnés 
+  function filteredEvents () {
+    return filteredEventsByType(data?.events, type).slice(
+      filteredEventsbypage(),
+      filteredEventsbypage() + PER_PAGE
+    );
+
+  }
+  // change les types d'option
   const changeType = (evtType) => {
     setCurrentPage(1);
     setType(evtType);
   };
-  const pageNumber = Math.floor((filteredEvents?.length || 0) / PER_PAGE) + 1;
-  const typeList = new Set(data?.events.map((event) => event.type));
+  const pageNumber = Math.ceil((filteredEventsByType()?.length || 0) / PER_PAGE); // affichage de la pagination des évènements filtrés 
+  const typeList = new Set(data?.events?.map((event) => event.type)); // récupère les types d'évènement et élimine les doublons
+  
   return (
     <>
       {error && <div>An error occured</div>}
-      {data === null ? (
-        "loading"
+      {!data ? (
+        "loading" 
       ) : (
         <>
           <h3 className="SelectTitle">Catégories</h3>
@@ -45,12 +54,13 @@ const EventList = () => {
             onChange={(value) => (value ? changeType(value) : changeType(null))}
           />
           <div id="events" className="ListContainer">
-            {filteredEvents.map((event) => (
+            {filteredEvents().map((event) => (
               <Modal key={event.id} Content={<ModalEvent event={event} />}>
                 {({ setIsOpened }) => (
                   <EventCard
                     onClick={() => setIsOpened(true)}
                     imageSrc={event.cover}
+                    imageAlt={event.title}
                     title={event.title}
                     date={new Date(event.date)}
                     label={event.type}

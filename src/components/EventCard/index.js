@@ -13,8 +13,9 @@ const EventCard = ({
   ...props
 }) => (
     <div
-      data-testid="card-testid"
+      data-testid={`${small ?"lastEvent": "card-testid"}`}
       className={`EventCard${small ? " EventCard--small" : ""}`}
+      label={`${small ? "boom" : ""}`}
       {...props}
     >
       <div className="EventCard__imageContainer">

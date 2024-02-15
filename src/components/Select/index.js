@@ -13,10 +13,10 @@ const Select = ({
   label,
   type = "normal",
 }) => {
-  const [value, setValue] = useState();
+  const [value, setValue] = useState('');
   const [collapsed, setCollapsed] = useState(true);
   const changeValue = (newValue) => {
-    onChange();
+    onChange(newValue);
     setValue(newValue);
     setCollapsed(newValue);
   };
@@ -36,14 +36,14 @@ const Select = ({
                   Toutes
                 </li>
               )}
-              {selection.map((s) => (
-                <li key={s} onClick={() => changeValue(s)}>
+              {selection.map((optionType) => (
+                <li key={optionType} onClick={() => changeValue(optionType)}>
                   <input
-                    defaultChecked={value === s}
+                    defaultChecked={value === optionType}
                     name="selected"
                     type="radio"
                   />{" "}
-                  {s}
+                  {optionType}
                 </li>
               ))}
             </>

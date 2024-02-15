@@ -1,18 +1,18 @@
 import { fireEvent, render, screen } from "@testing-library/react";
 import { api, DataProvider } from "../../contexts/DataContext";
-import Events from "./index";
+import EventList from "./index";
 
 const data = {
   events: [
     {
       id: 1,
       type: "soirée entreprise",
-      date: "2022-04-29T20:28:45.744Z",
+      date: "2022-02-28T20:28:45.744Z",
       title: "Conférence #productCON",
       cover: "/images/stem-list-EVgsAbL51Rk-unsplash.png",
       description:
         "Présentation des outils analytics aux professionnels du secteur",
-      nb_guesses: 1300,
+      nb_guesses: 900,
       periode: "24-25-26 Février",
       prestations: [
         "1 espace d’exposition",
@@ -26,12 +26,12 @@ const data = {
       id: 2,
       type: "forum",
       date: "2022-04-29T20:28:45.744Z",
-      title: "Forum #productCON",
+      title: "User&product MixUsers",
       cover: "/images/stem-list-EVgsAbL51Rk-unsplash.png",
       description:
         "Présentation des outils analytics aux professionnels du secteur",
       nb_guesses: 1300,
-      periode: "24-25-26 Février",
+      periode: "24-25-26 Avril",
       prestations: ["1 espace d’exposition", "1 scéne principale"],
     },
   ],
@@ -42,7 +42,7 @@ describe("When Events is created", () => {
     api.loadData = jest.fn().mockReturnValue(data);
     render(
       <DataProvider>
-        <Events />
+        <EventList />
       </DataProvider>
     );
     await screen.findByText("avril");
@@ -52,7 +52,7 @@ describe("When Events is created", () => {
       api.loadData = jest.fn().mockRejectedValue();
       render(
         <DataProvider>
-          <Events />
+          <EventList />
         </DataProvider>
       );
       expect(await screen.findByText("An error occured")).toBeInTheDocument();
@@ -63,10 +63,10 @@ describe("When Events is created", () => {
       api.loadData = jest.fn().mockReturnValue(data);
       render(
         <DataProvider>
-          <Events />
+          <EventList />
         </DataProvider>
       );
-      await screen.findByText("Forum #productCON");
+      await screen.findByText("User&product MixUsers");
       fireEvent(
         await screen.findByTestId("collapse-button-testid"),
         new MouseEvent("click", {
@@ -92,7 +92,7 @@ describe("When Events is created", () => {
       api.loadData = jest.fn().mockReturnValue(data);
       render(
         <DataProvider>
-          <Events />
+          <EventList />
         </DataProvider>
       );
 
