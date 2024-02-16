@@ -32,7 +32,7 @@ describe("When Events is created", () => {
       })
     });
     it("the error action is called", async () => {
-      const onError = jest.fn() 
+      const onError = jest.fn()
       mockContactApi.mockRejectedValueOnce(new Error('API error')) // vérifie que la fonction simulée sera toujours rejetée
 
       render(<Form onError={onError} />);

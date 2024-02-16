@@ -89,7 +89,7 @@ describe("When Events is created", () => {
 
   describe("and we click on an event", () => {
     it("the event detail is displayed", async () => {
-      api.loadData = jest.fn().mockReturnValue(data);
+      api.loadData = jest.fn().mockRejectedValue();
       render(
         <DataProvider>
           <EventList />
