@@ -1,8 +1,6 @@
 import React from "react";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import Page from "./index";
-// import { DataProvider } from "../../contexts/DataContext";
-// import Form from "../../containers/Form";
 
 describe("When Form is created", () => {
   it("a list of fields card is displayed", async () => {
@@ -48,7 +46,6 @@ describe("When a page is created", () => {
       <Page/>
     )
     const sortedEvents = mockData.events.sort((evtA, evtB) => new Date(evtB.date) - new Date(evtA.date));
-    // expect(sortLastEvents).toEqual(sortedEvents);
     expect(sortedEvents).toHaveLength(3)
     expect(sortedEvents[0]).toHaveProperty('title', 'Event 3')
   })
@@ -64,14 +61,14 @@ describe("When a page is created", () => {
       <Page />
     )
     screen.findByText('Alice')
-    expect(screen.queryByText('CXO')).toBeInTheDocument()
+    expect(screen.queryByText('CXO')).toBeInTheDocument() // PeapleCard rendu
   })
   it("a footer is displayed", () => {
     render(
       <Page/>
     )
-    const contact=screen.findByText('contact@724events.com')
-    expect(contact).toBeTruthy()
+    const contact=screen.queryByText('contact@724events.com')
+    expect(contact).toBeInTheDocument()
   })
   it("an event card, with the last event, is displayed", async () => {
     render(
