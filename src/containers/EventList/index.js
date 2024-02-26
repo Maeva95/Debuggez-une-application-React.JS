@@ -59,7 +59,7 @@ const EventList = () => {
                 {({ setIsOpened }) => (
                   <EventCard
                     onClick={() => setIsOpened(true)}
-                    imageSrc={event?.cover}
+                    imageSrc={`https://maeva95.github.io/Debuggez-une-application-React.JS/${event?.cover}`}
                     imageAlt={event?.title}
                     title={event?.title}
                     date={new Date(event?.date)}

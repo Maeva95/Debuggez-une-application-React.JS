@@ -18,6 +18,7 @@ const Slider = () => {
   useEffect(() => {
     const timeoutSlide = setTimeout(() => {
       nextCard()
+      // eslint-disable-next-line no-console
     }, 5000);
     return () => clearTimeout(timeoutSlide) 
   }, [index]);/* le tableau de dépendances prend en paramètre l'index pour que l'effet se déclenche à chaque fois que l'index change */
@@ -30,7 +31,7 @@ const Slider = () => {
             className={`SlideCard SlideCard--${
             index === idx ? "display" : "hide"
             }`}> 
-            <img src={event.cover} alt="forum"/>
+            <img src={`https://maeva95.github.io/Debuggez-une-application-React.JS/${event.cover}`} alt="forum"/>
             <div className="SlideCard__descriptionContainer">
               <div className="SlideCard__description">
                 <h3 data-testid="test-title">{event.title}</h3>

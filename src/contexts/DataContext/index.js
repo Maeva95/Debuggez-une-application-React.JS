@@ -11,10 +11,11 @@ const DataContext = createContext({});
 
 export const api = {
   loadData: async () => {
-    const res = await fetch("https://maeva95.github.io/Debuggez-une-application-React.JS/events.json");
-    // eslint-disable-next-line no-console
-    console.log(res.json())
-    return res.json();
+    const r = await fetch("https://maeva95.github.io/Debuggez-une-application-React.JS/events.json");
+    const response = await r.json() // ajout variablle avec await
+        // eslint-disable-next-line no-console
+        console.log(response)
+    return response;
   },
 };
 
@@ -23,14 +24,17 @@ export const DataProvider = ({ children }) => {
   const [data, setData] = useState(null);
   const getData = useCallback(async () => {
     try {
-      const resData = await api.loadData()
-      setData(resData);
+      const resData =  await api.loadData()
       // eslint-disable-next-line no-console
-      console.log("Données récupérées avec succès :", resData)
+      console.log(setData(resData))
+      setData(resData);
     } catch (err) {
       setError(err);
+      // eslint-disable-next-line no-console
+      console.log(err)
     }
   }, []);
+
   useEffect(() => {
     if (data) return;
     getData();
