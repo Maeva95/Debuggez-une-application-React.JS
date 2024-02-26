@@ -8,11 +8,11 @@ const Slider = () => {
   const [index, setIndex] = useState(0);
   const byDateDesc = data?.focus?.sort((evtA, evtB) =>
     new Date(evtA.date) > new Date(evtB.date) ? 1 : -1);
-  // fn tri des events par date dans l'ordre décroissant (si eventA est + grand que eventB retourne 1 sinon -1)
+  // fn tri des events par date de la + ancienne à la + récente (si eventA est + grand que eventB retourne 1 sinon -1)
   
   const byDateDescLength = byDateDesc?.length;
   const nextCard = () => {
-    setIndex(index < byDateDescLength - 1 ? index + 1 : 0) // si l'index (position init) est supérieur à la taille du tableau (index commençant par 0), alors renvoie 0 sinon l'index position +1
+    setIndex(index < byDateDescLength -1 ? index + 1 : 0) // si l'index (position init) est supérieur à la taille du tableau (index commençant par 0), alors renvoie 0 sinon l'index position +1
   };
 
   useEffect(() => {

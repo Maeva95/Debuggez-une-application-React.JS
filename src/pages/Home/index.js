@@ -120,7 +120,7 @@ const Page = () => {
         <h3>Notre derniére prestation</h3>
         {last && 
           <EventCard
-          imageSrc={last?.cover}
+          imageSrc={`https://maeva95.github.io/Debuggez-une-application-React.JS/${last?.cover}`}
           title={last?.title}
           date={new Date(last?.date)}
           small

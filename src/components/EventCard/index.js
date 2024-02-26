@@ -42,7 +42,7 @@ EventCard.propTypes = {
 EventCard.defaultProps = {
   imageAlt: "image",
   small: false,
-  label: "",
+  label: "boom",
 }
 
 export default EventCard;
