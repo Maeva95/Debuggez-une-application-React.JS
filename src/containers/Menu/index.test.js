@@ -22,5 +22,25 @@ describe("When Menu is created", () => {
       );
       expect(window.document.location.hash).toEqual("#contact");
     });
+    it("document location  href change", async () => {
+      render(<Menu />);
+      fireEvent(
+        await screen.findByText("Nos réalisations"),
+        new MouseEvent("click", {
+          cancelable: true,
+          bubbles: true,
+        })
+      );
+      expect(window.document.location.hash).toEqual("#nos-realisations");
+    });
+    it("should show the text of the button", async () => {
+      render(
+        <Menu />
+          );
+          await screen.findAllByText("Nos services")
+          fireEvent.click(screen.getByTestId("service-link"));
+          expect(screen.getByTestId("service-link")).toHaveTextContent('Nos services')
+        
+    });
   });
 });

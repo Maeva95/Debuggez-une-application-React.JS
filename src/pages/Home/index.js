@@ -14,20 +14,8 @@ import { useData } from "../../contexts/DataContext";
 
 
 const Page = () => {
-  const { data } = useData();
-
-  const sortLastEvents = 
-  [...(data?.events || [])].sort((evtA, evtB) =>
-  new Date(evtB.date) - new Date(evtA.date))
+  const { last } = useData();
   
-  // nouveau tableau pour éviter d'écraser le tableau des events d'EventList
-  const last = sortLastEvents[0] // 0 séléctionne le premier élément 
-  const lastElemCover=last?.cover
-  const lastElemTitle=last?.title
-  const lastElemDate=last?.date
-  // eslint-disable-next-line no-console
-  // console.log(last?.id)
-  //
   return <>
     <header>
       <Menu />
@@ -36,7 +24,7 @@ const Page = () => {
       <section className="SliderContainer">
         <Slider />
       </section>
-      <section className="ServicesContainer">
+      <section className="ServicesContainer" id="nos-services">
         <h2 className="Title">Nos services</h2>
         <p>Nous organisons des événements sur mesure partout dans le monde</p>
         <div className="ListContainer">
@@ -65,11 +53,11 @@ const Page = () => {
           </ServiceCard>
         </div>
       </section>
-      <section className="EventsContainer">
+      <section className="EventsContainer" id="nos-realisations">
         <h2 className="Title">Nos réalisations</h2>
         <EventList />
       </section>
-      <section className="PeoplesContainer">
+      <section className="PeoplesContainer" id="notre-equipe">
         <h2 className="Title">Notre équipe</h2>
         <p>Une équipe d’experts dédiés à l’ogranisation de vos événements</p>
         <div className="ListContainer">
@@ -130,14 +118,13 @@ const Page = () => {
     <footer className="row">
       <div className="col presta">
         <h3>Notre derniére prestation</h3>
-        {last ? 
+        {last && 
           <EventCard
-          imageSrc={lastElemCover}
-          title={lastElemTitle}
-          date={new Date(lastElemDate)}
+          imageSrc={last?.cover}
+          title={last?.title}
+          date={new Date(last?.date)}
           small
-          /> :
-          "loading" 
+          />
         }
       </div>
       <div className="col contact">

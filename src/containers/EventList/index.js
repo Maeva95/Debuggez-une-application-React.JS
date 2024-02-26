@@ -53,17 +53,17 @@ const EventList = () => {
             selection={Array.from(typeList)}
             onChange={(value) => (value ? changeType(value) : changeType(null))}
           />
-          <div id="events" className="ListContainer"  data-testid='eventList'>
+          <div id="events" className="ListContainer" data-testid='eventList'>
             {filteredEvents().map((event) => (
               <Modal key={event.id} Content={<ModalEvent event={event} />}>
                 {({ setIsOpened }) => (
                   <EventCard
                     onClick={() => setIsOpened(true)}
-                    imageSrc={event.cover}
-                    imageAlt={event.title}
-                    title={event.title}
-                    date={new Date(event.date)}
-                    label={event.type}
+                    imageSrc={event?.cover}
+                    imageAlt={event?.title}
+                    title={event?.title}
+                    date={new Date(event?.date)}
+                    label={event?.type}
                   />
                 )}
               </Modal>

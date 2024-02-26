@@ -184,6 +184,7 @@ Object {
           <ul>
             <li>
               <a
+                data-testid="service-link"
                 href="#nos-services"
               >
                 Nos services
@@ -224,6 +225,7 @@ Object {
         </section>
         <section
           class="ServicesContainer"
+          id="nos-services"
         >
           <h2
             class="Title"
@@ -303,6 +305,7 @@ Object {
         </section>
         <section
           class="EventsContainer"
+          id="nos-realisations"
         >
           <h2
             class="Title"
@@ -367,14 +370,12 @@ Object {
                 class="EventCard__imageContainer"
               >
                 <img
-                  alt="Event 3"
+                  alt="Event 1"
                   data-testid="card-image-testid"
                 />
                 <div
                   class="EventCard__label"
-                >
-                  boom
-                </div>
+                />
               </div>
               <div
                 class="EventCard__descriptionContainer"
@@ -382,12 +383,12 @@ Object {
                 <div
                   class="EventCard__title"
                 >
-                  Event 3
+                  Event 1
                 </div>
                 <div
                   class="EventCard__month"
                 >
-                  avril
+                  février
                 </div>
               </div>
             </div>
@@ -405,9 +406,7 @@ Object {
                 />
                 <div
                   class="EventCard__label"
-                >
-                  boom
-                </div>
+                />
               </div>
               <div
                 class="EventCard__descriptionContainer"
@@ -433,14 +432,12 @@ Object {
                 class="EventCard__imageContainer"
               >
                 <img
-                  alt="Event 1"
+                  alt="Event 3"
                   data-testid="card-image-testid"
                 />
                 <div
                   class="EventCard__label"
-                >
-                  boom
-                </div>
+                />
               </div>
               <div
                 class="EventCard__descriptionContainer"
@@ -448,12 +445,12 @@ Object {
                 <div
                   class="EventCard__title"
                 >
-                  Event 1
+                  Event 3
                 </div>
                 <div
                   class="EventCard__month"
                 >
-                  février
+                  avril
                 </div>
               </div>
             </div>
@@ -470,6 +467,7 @@ Object {
         </section>
         <section
           class="PeoplesContainer"
+          id="notre-equipe"
         >
           <h2
             class="Title"
@@ -779,39 +777,6 @@ Object {
           <h3>
             Notre derniére prestation
           </h3>
-          <div
-            class="EventCard EventCard--small"
-            data-testid="lastEvent"
-            label="boom"
-          >
-            <div
-              class="EventCard__imageContainer"
-            >
-              <img
-                alt="image"
-                data-testid="card-image-testid"
-              />
-              <div
-                class="EventCard__label"
-              >
-                boom
-              </div>
-            </div>
-            <div
-              class="EventCard__descriptionContainer"
-            >
-              <div
-                class="EventCard__title"
-              >
-                Event 3
-              </div>
-              <div
-                class="EventCard__month"
-              >
-                avril
-              </div>
-            </div>
-          </div>
         </div>
         <div
           class="col contact"
@@ -1295,6 +1260,7 @@ Object {
         <ul>
           <li>
             <a
+              data-testid="service-link"
               href="#nos-services"
             >
               Nos services
@@ -1335,6 +1301,7 @@ Object {
       </section>
       <section
         class="ServicesContainer"
+        id="nos-services"
       >
         <h2
           class="Title"
@@ -1414,6 +1381,7 @@ Object {
       </section>
       <section
         class="EventsContainer"
+        id="nos-realisations"
       >
         <h2
           class="Title"
@@ -1478,14 +1446,12 @@ Object {
               class="EventCard__imageContainer"
             >
               <img
-                alt="Event 3"
+                alt="Event 1"
                 data-testid="card-image-testid"
               />
               <div
                 class="EventCard__label"
-              >
-                boom
-              </div>
+              />
             </div>
             <div
               class="EventCard__descriptionContainer"
@@ -1493,12 +1459,12 @@ Object {
               <div
                 class="EventCard__title"
               >
-                Event 3
+                Event 1
               </div>
               <div
                 class="EventCard__month"
               >
-                avril
+                février
               </div>
             </div>
           </div>
@@ -1516,9 +1482,7 @@ Object {
               />
               <div
                 class="EventCard__label"
-              >
-                boom
-              </div>
+              />
             </div>
             <div
               class="EventCard__descriptionContainer"
@@ -1544,14 +1508,12 @@ Object {
               class="EventCard__imageContainer"
             >
               <img
-                alt="Event 1"
+                alt="Event 3"
                 data-testid="card-image-testid"
               />
               <div
                 class="EventCard__label"
-              >
-                boom
-              </div>
+              />
             </div>
             <div
               class="EventCard__descriptionContainer"
@@ -1559,12 +1521,12 @@ Object {
               <div
                 class="EventCard__title"
               >
-                Event 1
+                Event 3
               </div>
               <div
                 class="EventCard__month"
               >
-                février
+                avril
               </div>
             </div>
           </div>
@@ -1581,6 +1543,7 @@ Object {
       </section>
       <section
         class="PeoplesContainer"
+        id="notre-equipe"
       >
         <h2
           class="Title"
@@ -1890,39 +1853,6 @@ Object {
         <h3>
           Notre derniére prestation
         </h3>
-        <div
-          class="EventCard EventCard--small"
-          data-testid="lastEvent"
-          label="boom"
-        >
-          <div
-            class="EventCard__imageContainer"
-          >
-            <img
-              alt="image"
-              data-testid="card-image-testid"
-            />
-            <div
-              class="EventCard__label"
-            >
-              boom
-            </div>
-          </div>
-          <div
-            class="EventCard__descriptionContainer"
-          >
-            <div
-              class="EventCard__title"
-            >
-              Event 3
-            </div>
-            <div
-              class="EventCard__month"
-            >
-              avril
-            </div>
-          </div>
-        </div>
       </div>
       <div
         class="col contact"

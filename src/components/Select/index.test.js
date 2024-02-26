@@ -73,7 +73,7 @@ describe("When a select is created", () => {
           })
         );
 
-        const choiceAll = screen.getByText("toutes");
+        const choiceAll = screen.getByText("Toutes");
         fireEvent(
           choiceAll,
           new MouseEvent("click", {

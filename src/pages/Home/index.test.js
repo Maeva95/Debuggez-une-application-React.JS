@@ -41,19 +41,11 @@ jest.mock('../../contexts/DataContext', () => ({
   useData: () => ({data: mockData}),
 }))
 describe("When a page is created", () => {
-  it('sortLastEvents return the last element of the listEvents', () => {
-    render(
-      <Page/>
-    )
-    const sortedEvents = mockData.events.sort((evtA, evtB) => new Date(evtB.date) - new Date(evtA.date));
-    expect(sortedEvents).toHaveLength(3)
-    expect(sortedEvents[0]).toHaveProperty('title', 'Event 3')
-  })
   it("a list of events is displayed", async() => {
     const container = render(
       <Page/>
     )
-    await expect(container).toMatchSnapshot() 
+    expect(container).toMatchSnapshot() 
     await screen.findByTestId('eventList') // EventList rendu
   })
   it("a list a people is displayed", () => {
@@ -70,11 +62,19 @@ describe("When a page is created", () => {
     const contact=screen.queryByText('contact@724events.com')
     expect(contact).toBeInTheDocument()
   })
+  it('sortLastEvents return the last element of the listEvents', () => { // test la fonction sort
+    render(
+      <Page/>
+    )
+    const sortedEvents = mockData.events.sort((evtA, evtB) => new Date(evtB.date) - new Date(evtA.date));
+    expect(sortedEvents).toHaveLength(3)
+    expect(sortedEvents[0]).toHaveProperty('title', 'Event 3')
+  })
   it("an event card, with the last event, is displayed", async () => {
     render(
       <Page/>
     )
-    // await expect(container).toMatchSnapshot()
     await screen.findByTestId('lastEvent') // EventCard "small" rendu
+    await screen.findByDisplayValue('boom')
   })
 });
