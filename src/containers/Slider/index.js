@@ -7,19 +7,22 @@ const Slider = () => {
   const { data } = useData();
   const [index, setIndex] = useState(0);
   const byDateDesc = data?.focus.sort((evtA, evtB) =>
-    new Date(evtA.date) < new Date(evtB.date) ? 1 : -1);
+    new Date(evtA.date) > new Date(evtB.date) ? 1 : -1);
   // fn tri des events par date de la + ancienne à la + récente (si eventA est + grand que eventB retourne 1 sinon -1)
   
   const byDateDescLength = byDateDesc?.length;
-  const nextCard = () => {
-    setIndex(index < byDateDescLength -1 ? index + 1 : 0) // si l'index (position init) est supérieur à la taille du tableau (index commençant par 0), alors renvoie 0 sinon l'index position +1
-  };
+  // const nextCard = () => {
+  //   setIndex(index < byDateDescLength -1 ? index + 1 : 0) // si l'index (position init) est supérieur à la taille du tableau (index commençant par 0), alors renvoie 0 sinon l'index position +1
+  // };
 
   useEffect(() => {
-    const timeoutSlide = setTimeout(() => {
-      nextCard()
-      // eslint-disable-next-line no-console
-    }, 5000);
+    // const timeoutSlide = setTimeout(() => {
+    //   nextCard()
+    //   // eslint-disable-next-line no-console
+    // }, 5000);
+    const timeoutSlide = setTimeout(() => 
+    setIndex(index < byDateDescLength -1 ? index + 1 : 0)
+    , 5000);
     return () => clearTimeout(timeoutSlide) 
   }, [index]);/* le tableau de dépendances prend en paramètre l'index pour que l'effet se déclenche à chaque fois que l'index change */
 
